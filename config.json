@@ -1,0 +1,9 @@
+{
+    "rethink": {
+        "host": "socio.onjs.net",
+        "port": 28015,
+        "db": "socio",
+        "user": "socio",
+        "password": "qwerty"
+    }
+}

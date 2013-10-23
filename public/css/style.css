@@ -1,0 +1,17 @@
+.acenter {text-align: center;}
+.aleft {text-align: left;}
+.aright {text-align: right;}
+.pointer {
+    cursor: pointer;
+}
+
+
+body {
+    background-color: #222 !important;
+}
+
+
+
+#ui {
+    position: absolute;
+}

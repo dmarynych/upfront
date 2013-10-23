@@ -1,0 +1,23 @@
+{
+    "name": "socio-http",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "underscore":"*",
+        "async":"*",
+        "express": "3.3.4",
+        "ejs": "*",
+        "stylus": "*",
+        "passport": "*",
+        "passport-local": "*",
+        "rethinkdb": "*",
+        "nconf": "*",
+        "connect-rethinkdb": "*",
+        "connect-flash": "*",
+        "bcrypt": "*",
+        "passport-github": "*"
+    }
+}

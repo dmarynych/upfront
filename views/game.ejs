@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Socio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/wmanager.css">
+    <link rel="stylesheet" href="css/ige.css">
+    <link rel="stylesheet" href="css/slider.css">
+</head>
+<body>
+
+<div id="ui">
+    <div class="container">
+        <nav class="navbar navbar-inverse navbar-default" role="navigation">
+            <ul class="nav navbar-nav">
+                <li><a href="#" class="openPeopleWin">Жители</a></li>
+                <li><a href="#" class="openBuildingWin">Строительство</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class="igeLoading loadingFloat">
+    <!--<div class="loadingLogo"></div>
+    <div class="loadingCircle"></div>
+    <div class="loadingCircleInner"></div>-->
+    <div class="loadingText">
+        Loading...
+    </div>
+</div>
+
+<script data-tplid="peopleModal" class="handlebars_tpl" type="text/x-handlebars-template">
+    <div class="modal fade" id="peopleModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Жители</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="mobileList table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Действие</th>
+                                <th>Работа</th>
+                                <th>Хобби</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mobileListTbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script data-tplid="peopleListRow" class="handlebars_tpl" type="text/x-handlebars-template">
+    <tr class="mobileListRow{{_id}}">
+        <td>{{name}}</td>
+        <td class="mobileAction">
+            {{#if task}}
+                <a href="#">{{trans 'task' task}}</a>,
+                <a href="#">{{trans 'action' action}}</a>
+            {{else}}
+                <span>-</span>
+            {{/if}}</td>
+        <td>
+            <a href="#" class="popover-toggler" data-toggle="popover" data-title="{{trans 'job' profession}}" data-placement="bottom">{{trans 'job' profession}}</a>
+        </td>
+        <td>
+            {{#eachk hobbies}}
+                <a href="#">{{value}}</a>
+            {{/eachk}}
+        </td>
+    </tr>
+</script>
+
+<script data-tplid="mobileWorkPopover" class="handlebars_tpl" type="text/x-handlebars-template">
+    <h4>Время работы</h4>
+    <input type="text" class="span2 bs-slider" value="" data-slider-min="0" data-slider-max="24" data-slider-step="1" data-slider-value="[8,16]" data-slider-orientation="horizontal">
+</script>
+
+<script type="text/javascript">
+    var config = {
+        base_url: 'localhost:3000',
+        front_url: 'http://localhost:3000',
+        socket_url: 'localhost:3000'/*,
+        session_id: '{{ app.session.getId() }}'*/
+    };
+
+    var spriteData = {};
+    var igeRoot = 'http://localhost:3004/components/isogenic/engine/';
+</script>
+
+
+<script type="text/javascript" src="components/jquery/jquery.js"></script>
+<script type="text/javascript" src="js/libs/bootstrap.js"></script>
+<script type="text/javascript" src="js/libs/wmanager.js"></script>
+<script type="text/javascript" src="js/libs/bootstrap-slider.js"></script>
+<script type="text/javascript" src="components/underscore/underscore.js"></script>
+<script type="text/javascript" src="components/backbone/backbone-min.js"></script>
+<script type="text/javascript" src="components/socket.io-client/dist/socket.io.js"></script>
+<script type="text/javascript" src="components/handlebars/handlebars.js"></script>
+
+
+<script type="text/javascript" src="components/CLDRPluralRuleParser/src/CLDRPluralRuleParser.js"></script>
+<script type="text/javascript" src="components/jquery.i18n/src/jquery.i18n.js"></script>
+<script type="text/javascript" src="components/jquery.i18n/src/jquery.i18n.messages.js"></script>
+<script type="text/javascript" src="components/jquery.i18n/src/jquery.i18n.fallbacks.js"></script>
+<script type="text/javascript" src="components/jquery.i18n/src/jquery.i18n.parser.js"></script>
+<script type="text/javascript" src="components/jquery.i18n/src/jquery.i18n.emitter.js"></script>
+<script type="text/javascript" src="components/jquery.i18n/src/jquery.i18n.language.js"></script>
+<script type="text/javascript" src="components/jquery.i18n/src/languages/ru.js"></script>
+
+<!-- Isogenic Loader -->
+<script type="text/javascript" src="http://localhost:3004/components/isogenic/engine/loader.js"></script>
+</body>
+</html>
