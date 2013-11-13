@@ -1,15 +1,19 @@
 {
-    "name": "web",
-    "version": "0.0.0",
-    "dependencies": {
-        "async": "*",
-        "backbone": "*",
-        "underscore": "*",
-        "handlebars": "*",
-        "jquery": "*",
-        "jquery-ui": "*",
-        "socket.io-client": "*",
-        "jquery.i18n": "git@github.com:wikimedia/jquery.i18n.git",
-        "CLDRPluralRuleParser": "https://github.com/santhoshtr/CLDRPluralRuleParser.git"
-    }
+  "name": "web",
+  "version": "0.0.0",
+  "dependencies": {
+      "jquery": "*",
+    "angular": "*",
+      "angular-route": "*",
+    "json3": "~*",
+    "es5-shim": "*",
+    "angular-resource": "*",
+    "underscore": "*",
+    "moment": "*",
+    "socket.io-client": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "*",
+    "angular-scenario": "*"
+  }
 }

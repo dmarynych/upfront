@@ -6,9 +6,9 @@ var rethink = require('../rethink');
 
  exports.load = function(req, res){
 
-     async.parallel([
+     /*async.parallel([
          function(cb){
-             rethink.getOne('worlds', {id: req.user.worldId}, function(err, res) {
+             rethink.getOne('repos', {id: req.user.worldId}, function(err, res) {
                  cb(err, res);
              });
          },
@@ -20,15 +20,15 @@ var rethink = require('../rethink');
      ],
      // optional callback
      function(err, results){
-         res.json(
-             {
-                 world: results[0],
-                 entities: results[1]
-             }
-         );
+
          // the results array will equal ['one','two'] even though
          // the second function had a shorter timeout.
-     });
+     });*/
 
-
+     res.json(
+         {
+             repos: ['jquery/jquery'],
+             totalRepos: 1
+         }
+     );
 };

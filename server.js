@@ -4,6 +4,7 @@
 
 var express = require('express'),
     user = require('./routes/user'),
+    up2 = require('./routes/up2'),
     http = require('http'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
@@ -33,10 +34,11 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (id, done) {
     console.log('serialize')
-    console.log(arguments)
-    rethink.getOne('users', {id: id}, function(err, user) {
+    console.log(arguments);
+    done(null, id);
+    /*rethink.getOne('users', {id: id}, function(err, user) {
         done(err, user);
-    });
+    });*/
 });
 
 
@@ -127,7 +129,7 @@ if ('development' === app.get('env')) {
 
 
 app.get('/users', user.list);
-//app.get('/game/load', game.load);
+app.get('/init', up2.load);
 
 
 
@@ -176,7 +178,7 @@ app.post('/users/session',
 app.get('/', function (req, res) {
 
     if (req.user) {
-        res.render('game');
+        res.render('main');
     }
     else {
         res.render('signin', {
