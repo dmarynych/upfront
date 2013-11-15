@@ -54,6 +54,14 @@ var rethink = {
                 cb(null, result[0]);
             });
         });
+    },
+    insert: function(table, data, cb) {
+        r.db(this.db)
+            .table(table)
+            .insert(data)
+            .run(this.conn, function(err, result) {
+                cb(null, result);
+            });
     }
 };
 

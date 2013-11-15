@@ -26,15 +26,37 @@ rethink.connect(function() {
 
 
 // serialize sessions
-passport.serializeUser(function (user, done) {
-    console.log('serialize')
-    console.log(user)
-    done(null, user.id);
+passport.serializeUser(function (githubUser, done) {
+    console.log('serialize');
+
+    rethink.getOne('users', {githubId: githubUser.id}, function(err, user) {
+        // if user exists in db
+        if(user) {
+            console.log('user exists');
+            done(null, githubUser.id);
+        }
+        else {
+            console.log('user not found, inserting');
+            var userObj = {
+                githubId: githubUser.id,
+                username: githubUser.username,
+                displayName: githubUser.displayName,
+                watches: [],
+                email: null
+            };
+            if(githubUser.emails && githubUser.emails.length > 0 && githubUser.emails[0].value) {
+                userObj.email = githubUser.emails[0].value;
+            }
+            rethink.insert('users', userObj, function(res) {
+                done(null, githubUser.id);
+            });
+        }
+    });
+
+
 });
 
 passport.deserializeUser(function (id, done) {
-    console.log('serialize')
-    console.log(arguments);
     done(null, id);
     /*rethink.getOne('users', {id: id}, function(err, user) {
         done(err, user);

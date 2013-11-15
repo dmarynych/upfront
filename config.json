@@ -2,7 +2,7 @@
     "rethink": {
         "host": "socio.onjs.net",
         "port": 28015,
-        "db": "socio",
+        "db": "uptodater",
         "user": "socio",
         "password": "qwerty"
     }
