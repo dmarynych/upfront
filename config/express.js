@@ -12,7 +12,7 @@ module.exports = function(app, passport, rethink) {
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
-    app.use(express.cookieParser('kekeke'));
+    app.use(express.cookieParser('s&^hw5jk4hjkw458Y#*%Y$hjk5n4'));
 
 // express/mongo session storage
     app.use(express.session({

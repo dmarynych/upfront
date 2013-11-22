@@ -1,9 +1,12 @@
 var user = require('../routes/user'),
-    up2 = require('../routes/up2');
+    init = require('../controllers/init'),
+    feed = require('../controllers/feed');
 
 module.exports = function(app, passport, rethink) {
-    app.get('/users', user.list);
-    app.get('/init', up2.load);
+
+
+    app.get('/myFeed', feed.my);
+    app.get('/init', init);
 
 
 

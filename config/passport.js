@@ -29,6 +29,7 @@ module.exports = function(passport, rethink) {
                 if(githubUser.emails && githubUser.emails.length > 0 && githubUser.emails[0].value) {
                     userObj.email = githubUser.emails[0].value;
                 }
+
                 rethink.insert('users', userObj, function(res) {
                     done(null, githubUser.id);
                 });

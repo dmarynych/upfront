@@ -6,7 +6,7 @@
         "start": "node server.js"
     },
     "dependencies": {
-        "underscore":"*",
+        "lodash":"*",
         "async":"*",
         "express": "3.3.4",
         "ejs": "*",
