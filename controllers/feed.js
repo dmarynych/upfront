@@ -8,19 +8,34 @@ module.exports = {
     my: function(req, res) {
         rethink.getOne('users', {githubId: req.user}, function(err, user) {
             if(user) {
-                r.db('uptodater').table('repos')
-                    .filter(function (repo) { return r.expr(user.watches).contains(repo('id')) })
-                    /*.map(function(repo) {
-                        return repo('user').add('/').add(repo('name'));
-                    })*/
-                    .run(rethink.conn, function(err, cursor) {
-                        cursor.toArray(function(err, repos) {
-                            if (err) throw err;
+                getFeed({}, function(err, feed) {
+                    if (err) throw err;
 
-                            res.json(repos);
-                        });
-                    });
+                    res.json(feed);
+                });
             }
+        });
+    },
+    all: function(req, res) {
+        getFeed({}, function(err, feed) {
+            if (err) throw err;
+
+            res.json(feed);
         });
     }
 };
+
+
+function getFeed(criteria, callback) {
+    r.db('uptodater').table('releases')
+        //.filter(criteria)
+        .orderBy({index: r.desc('releaseDate')})
+        .eqJoin('repoId', r.db('uptodater').table('repos'))
+        .zip()
+        .limit(10)
+        .run(rethink.conn, function(err, cursor) {
+            if (err) throw err;
+
+            cursor.toArray(callback);
+        })
+}

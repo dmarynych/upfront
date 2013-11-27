@@ -6,6 +6,7 @@ module.exports = function(app, passport, rethink) {
 
 
     app.get('/myFeed', feed.my);
+    app.get('/feed', feed.all);
     app.get('/init', init);
 
 
@@ -53,14 +54,6 @@ module.exports = function(app, passport, rethink) {
 
 
     app.get('/', function (req, res) {
-
-        if (req.user) {
-            res.render('main');
-        }
-        else {
-            res.render('signin', {
-                message: req.flash('error')
-            });
-        }
+        res.render('main');
     });
 };

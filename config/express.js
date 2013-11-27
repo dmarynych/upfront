@@ -1,6 +1,7 @@
 var express = require('express'),
     flash = require('connect-flash'),
     path = require('path'),
+    config = require('../config'),
     RDBStore = require('connect-rethinkdb')(express);
 
 module.exports = function(app, passport, rethink) {
@@ -14,22 +15,22 @@ module.exports = function(app, passport, rethink) {
     app.use(express.methodOverride());
     app.use(express.cookieParser('s&^hw5jk4hjkw458Y#*%Y$hjk5n4'));
 
-// express/mongo session storage
+    // express/rethink session storage
     app.use(express.session({
         secret: 'keke',
         store: new RDBStore({
             flushOldSessIntvl: 60000,
             clientOptions: {
-                db: 'socio',
-                host: 'socio.onjs.net',
-                port: '28015'
+                host: config.get('rethink:host'),
+                port: config.get('rethink:port'),
+                db: config.get('rethink:db')
             },
             table: 'session'
         })
     }));
 
 
-// use passport session
+    // use passport session
     app.use(passport.initialize());
     app.use(passport.session());
 
