@@ -5,5 +5,10 @@
         "db": "uptodater",
         "user": "socio",
         "password": "qwerty"
+    },
+
+    "github": {
+        "client_id": "9932f5169e52393f950f",
+        "client_secret": "0ad1ef4180a3069a327a88c71641ac0d778cab4f"
     }
 }

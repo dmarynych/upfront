@@ -7,9 +7,17 @@ var express = require('express'),
     config = require('./config'),
     passport = require('passport'),
     rethink = require('./rethink'),
-    async = require('async');
+    async = require('async')/*,
+    thinky = require('thinky')*/;
 
 var app = express();
+/*thinky.init({
+    host: config.get('rethink:host'),
+    port: config.get('rethink:port'),
+    db: config.get('rethink:db')
+});*/
+
+
 rethink.connect(function() {
     require('./config/passport')(passport, rethink);
     require('./config/express')(app, passport, rethink);

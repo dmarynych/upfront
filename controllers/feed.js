@@ -1,23 +1,33 @@
 var _ = require('lodash'),
     async = require('async'),
     r = require('rethinkdb'),
-    rethink = require('../rethink');
+    rethink = require('../rethink')/*,
+    User = require('../models/User')*/;
 
 
 module.exports = {
     my: function(req, res) {
-        rethink.getOne('users', {githubId: req.user}, function(err, user) {
-            if(user) {
-                getFeed({}, function(err, feed) {
-                    if (err) throw err;
+        //User.get()
+        rethink.r
+            .table('users')
+            .get(req.user)
+            .run(rethink.conn, function(err, user) {
+                if(user) {
+                    getFeed(function(doc) {
+                        return r.expr(user.watches).contains(doc('repoId'));
+                    }, function(err, feed) {
+                        if(err) throw err;
 
-                    res.json(feed);
-                });
-            }
-        });
+                        res.json(feed);
+                    });
+                }
+                else {
+                    res.json([]);
+                }
+            });
     },
     all: function(req, res) {
-        getFeed({}, function(err, feed) {
+        getFeed(null, function(err, feed) {
             if (err) throw err;
 
             res.json(feed);
@@ -27,10 +37,15 @@ module.exports = {
 
 
 function getFeed(criteria, callback) {
-    r.db('uptodater').table('releases')
-        //.filter(criteria)
-        .orderBy({index: r.desc('releaseDate')})
-        .eqJoin('repoId', r.db('uptodater').table('repos'))
+    var rq = r.table('releases')
+        .orderBy({index: r.desc('releaseDate')});
+
+    if(criteria) {
+        rq = rq.filter(criteria);
+    }
+
+
+    rq.eqJoin('repoId', r.table('repos'))
         .zip()
         .limit(10)
         .run(rethink.conn, function(err, cursor) {

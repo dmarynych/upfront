@@ -30,18 +30,17 @@ module.exports = function(app, passport, rethink) {
     }));
 
 
+
+
     // use passport session
     app.use(passport.initialize());
     app.use(passport.session());
-
     app.use(flash());
 
     app.use(app.router);
-    app.use(express.static(path.join(__dirname, '../public')), { bufferSize: 999999 });
+    app.use(express.static(path.join(__dirname, '../public')));
 
-
-// development only
-    if ('development' === app.get('env')) {
+    /*if ('development' === app.get('env')) {
         app.use(express.errorHandler());
-    }
+    }*/
 };

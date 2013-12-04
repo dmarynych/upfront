@@ -11,6 +11,7 @@
         "express": "3.3.4",
         "ejs": "*",
         "stylus": "*",
+        "thinky": "*",
         "passport": "*",
         "passport-local": "*",
         "rethinkdb": "*",

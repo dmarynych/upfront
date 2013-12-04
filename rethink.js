@@ -14,7 +14,7 @@ var rethink = {
 
 
     connect: function(cb) {
-        r.connect({ host: this.host, port: this.port }, function(err, conn) {
+        r.connect({ host: this.host, port: this.port, db: this.db }, function(err, conn) {
             if(err) {
                 throw err;
             }
@@ -60,7 +60,8 @@ var rethink = {
             .table(table)
             .insert(data)
             .run(this.conn, function(err, result) {
-                cb(null, result);
+                var generatedId = result.generated_keys[0];
+                cb(null, result, generatedId);
             });
     }
 };
