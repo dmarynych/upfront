@@ -7,24 +7,29 @@ var _ = require('lodash'),
 
 module.exports = {
     my: function(req, res) {
-        //User.get()
-        rethink.r
-            .table('users')
-            .get(req.user)
-            .run(rethink.conn, function(err, user) {
-                if(user) {
-                    getFeed(function(doc) {
-                        return r.expr(user.watches).contains(doc('repoId'));
-                    }, function(err, feed) {
-                        if(err) throw err;
+        if(!req.user) {
+            res.json([]);
+        }
+        else {
+            rethink.r
+                .table('users')
+                .get(req.user)
+                .run(rethink.conn, function(err, user) {
+                    if(user) {
+                        getFeed(function(doc) {
+                            return r.expr(user.watches).contains(doc('repoId'));
+                        }, function(err, feed) {
+                            if(err) throw err;
 
-                        res.json(feed);
-                    });
-                }
-                else {
-                    res.json([]);
-                }
-            });
+                            res.json(feed);
+                        });
+                    }
+                    else {
+                        res.json([]);
+                    }
+                });
+        }
+
     },
     all: function(req, res) {
         getFeed(null, function(err, feed) {

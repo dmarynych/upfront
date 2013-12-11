@@ -12,8 +12,8 @@
                 </h4>
 
                 <div>
-                    <span class="date" ng-show="repo.releaseDate > twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate * 1000 | date: 'HH:mm'}}</span>
-                    <span class="date" ng-show="repo.releaseDate < twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate * 1000 | date: 'dd-MMM'}}</span>
+                    <span class="date" ng-show="repo.releaseDate > twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate | date: 'HH:mm'}}</span>
+                    <span class="date" ng-show="repo.releaseDate < twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate | date: 'dd-MMM'}}</span>
 
                     <img ng-src="{{repo.avatar || 'img/avatar.png'}}" alt="" width="22"/>
                     <a href="https://github.com/{{repo.user}}/{{repo.name}}">
