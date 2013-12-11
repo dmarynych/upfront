@@ -13,6 +13,7 @@ nconf.argv()
     .file('./config/config.json');
 
 if(process.env.NODE_ENV === 'dev') {
+    console.log(222);
     nconf.file('./config/config_dev.json');
 }
 
