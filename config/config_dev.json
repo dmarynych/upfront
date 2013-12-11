@@ -1,0 +1,13 @@
+{
+    "rethink": {
+        "host": "socio.onjs.net",
+        "port": 28015,
+        "db": "uptodater",
+        "user": "socio",
+        "password": "qwerty"
+    },
+    "github": {
+        "client_id": "a3cf88658e057fda6294",
+        "client_secret": "b7a07f27ac8cfdd59218486477e36a0a63ffe459"
+    }
+}

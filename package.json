@@ -1,5 +1,5 @@
 {
-    "name": "socio-http",
+    "name": "baley",
     "version": "0.0.1",
     "private": true,
     "scripts": {
@@ -9,10 +9,8 @@
         "lodash":"*",
         "async":"*",
         "express": "3.3.4",
-        "ejs": "*",
-        "stylus": "*",
-        "thinky": "*",
         "passport": "*",
+        "ejs": "*",
         "passport-local": "*",
         "rethinkdb": "*",
         "nconf": "*",

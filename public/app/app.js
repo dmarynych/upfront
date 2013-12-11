@@ -9,7 +9,6 @@ angular.module('up2').run(function($rootScope, $route){
     });
 });
 
-
 var app = {};
 $(function() {
     $.getJSON('init', function(data) {
@@ -18,13 +17,6 @@ $(function() {
         angular.bootstrap(document, ['up2']);
     });
 });
-
-
-
-
-
-
-
 
 function h5Notify(title, text) {
     if (window.webkitNotifications.checkPermission() === 0) { // 0 is PERMISSION_ALLOWED

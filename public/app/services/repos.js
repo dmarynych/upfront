@@ -81,10 +81,10 @@ angular.module('up2').factory('repos', function($http, $rootScope, socket) {
 
         nextVersion = versions[index-1];
         var currPeriod = _.find(periods, function(period) {
-                return moment(currVersion.releaseDate) >= period.date.unix();
+                return moment(currVersion.releaseDate) >= period.date.unix()*1000;
             }),
             prevPeriod = _.find(periods, function(period) {
-                return moment(nextVersion.releaseDate) >= period.date.unix();
+                return moment(nextVersion.releaseDate) >= period.date.unix()*1000;
             });
 
         return !currPeriod.date.isSame(prevPeriod.date);
@@ -92,7 +92,7 @@ angular.module('up2').factory('repos', function($http, $rootScope, socket) {
 
     repos.getPeriodLabel = function(date) {
         var period = _.find(periods, function(period) {
-            return date >= period.date.unix();
+            return date >= period.date.unix()*1000;
         });
         return period.label;
     };
