@@ -11,8 +11,6 @@ var express = require('express'),
 
 var app = express();
 
-console.log(config.get('rethink'))
-
 rethink.connect(function() {
     require('./config/passport')(passport, rethink);
     require('./config/express')(app, passport, rethink);

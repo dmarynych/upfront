@@ -8,12 +8,13 @@ var fs    = require('fs'),
 //   2. Environment variables
 //   3. A file located at 'path/to/config.json'
 //
+
 nconf.argv()
     .env()
-    .file('config/config.json');
+    .file(__dirname +'config/config.json');
 
 if(process.env.NODE_ENV === 'dev') {
-    nconf.file('config/config_dev.json');
+    nconf.file(__dirname +'config/config_dev.json');
 }
 
 
