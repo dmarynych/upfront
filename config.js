@@ -10,11 +10,10 @@ var fs    = require('fs'),
 //
 nconf.argv()
     .env()
-    .file('./config/config.json');
+    .file('config/config.json');
 
 if(process.env.NODE_ENV === 'dev') {
-    console.log(222);
-    nconf.file('./config/config_dev.json');
+    nconf.file('config/config_dev.json');
 }
 
 
