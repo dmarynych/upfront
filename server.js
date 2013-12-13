@@ -16,7 +16,6 @@ rethink.connect(function() {
     require('./config/express')(app, passport, rethink);
     require('./config/routes')(app, passport, rethink);
 
-
     http.createServer(app).listen(app.get('port'), function () {
         console.log('Server started and listening on port ' + app.get('port'));
     });

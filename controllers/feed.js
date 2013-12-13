@@ -11,23 +11,17 @@ module.exports = {
             res.json([]);
         }
         else {
-            rethink.r
-                .table('users')
-                .get(req.user)
-                .run(rethink.conn, function(err, user) {
-                    if(user) {
-                        getFeed(function(doc) {
-                            return r.expr(user.watches).contains(doc('repoId'));
-                        }, function(err, feed) {
-                            if(err) throw err;
+           getUser(req.user, function(err, user) {
+               if(err) throw err;
 
-                            res.json(feed);
-                        });
-                    }
-                    else {
-                        res.json([]);
-                    }
-                });
+               getFeed(function(doc) {
+                   return r.expr(user.watches).contains(doc('repoId'));
+               }, function(err, feed) {
+                   if(err) throw err;
+
+                   res.json(feed);
+               });
+           });
         }
 
     },
@@ -40,6 +34,12 @@ module.exports = {
     }
 };
 
+function getUser(userId, cb) {
+    rethink.r
+        .table('users')
+        .get(req.user)
+        .run(rethink.conn, cb);
+}
 
 function getFeed(criteria, callback) {
     var rq = r.table('releases')
@@ -52,7 +52,7 @@ function getFeed(criteria, callback) {
 
     rq.eqJoin('repoId', r.table('repos'))
         .zip()
-        .limit(10)
+        .limit(100)
         .run(rethink.conn, function(err, cursor) {
             if (err) throw err;
 
