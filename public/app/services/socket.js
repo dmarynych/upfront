@@ -12,7 +12,7 @@ angular.module('up2').factory('socket', function($rootScope) {
         });
     }*/
     var user = window.userName || 'anonymous';
-    var url = 'http://uptodater.onjs.net:3001?userName='+ user;
+    var url = 'http://localhost:3001?userName='+ user;
     var socket = io.connect(url);
 
     return {
