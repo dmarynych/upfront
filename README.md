@@ -1,4 +1,6 @@
-upfront
+![](https://api.travis-ci.org/dmarynych/upfront.png)
+
+Upfront
 =======
 
 Frontend for http://uptodater.onjs.net
