@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "start": "node server.js"
+        "start": "node server.js",
+        "test": "mocha ./tests"
     },
     "dependencies": {
         "lodash":"*",
@@ -18,5 +19,9 @@
         "connect-flash": "*",
         "bcrypt": "*",
         "passport-github": "*"
+    },
+    "devDependencies": {
+        "mocha": "",
+        "expect.js": ""
     }
 }
