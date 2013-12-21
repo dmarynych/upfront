@@ -17,7 +17,6 @@
         "nconf": "*",
         "connect-rethinkdb": "*",
         "connect-flash": "*",
-        "bcrypt": "*",
         "passport-github": "*"
     },
     "devDependencies": {
