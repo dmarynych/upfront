@@ -5,4 +5,5 @@ deployment:
   production:
     branch: master
     commands:
-      - ./deploy_prod.sh
+      - ssh stark@uptodater.onjs.net
+      - ls
