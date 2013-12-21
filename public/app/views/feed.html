@@ -19,9 +19,9 @@
                     <a href="https://github.com/{{repo.user}}/{{repo.name}}">
                         {{repo.user}}/{{repo.name}}
                     </a>
-                    <span class="">{{repo.version}},</span>
+                    <span class="">{{repo.currentVersion}},</span>
                     <span class="pointer" ng-click="addLangFilter(repo.language)">{{repo.language}}</span>
-                    <a href="/compareVersion/{{repo.user}}/{{repo.name}}/{{repo.version}}">changelog</a>
+                    <a href="/compareVersion/{{repo.user}}/{{repo.name}}/{{repo.currentVersion}}">changelog</a>
                 </div>
                 <p style="padding-left:60px;">
                     {{repo.description}}

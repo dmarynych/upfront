@@ -92,3 +92,18 @@
         width: 263px;
     }
 }
+
+
+/*Our gosu styles*/
+.repoRow {
+    cursor: pointer;
+ }
+
+.reposTable .instantColumn,
+.reposTable .dailyColumn {
+    text-align: center;
+}
+
+.feedItem {
+    margin: 10px 0;
+}
