@@ -14,9 +14,10 @@ angular.module('up2').controller('FeedCtrl', function($scope, $rootScope, repos)
     $scope.isToday = function(date) {
         return date > moment().startOf('day');
     };
-    repos.load('all', function(periods, langs) {
+    // calling method load of serice repos(services/repos)
+    repos.load('all', function(versions, langs) {
         $scope.languages = langs;
-        $scope.versions = periods;
+        $scope.versions = versions;
     });
 
     $rootScope.$on('langsFilterChanged', function(event, filterLanguage) {

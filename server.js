@@ -6,8 +6,7 @@ var express = require('express'),
     http = require('http'),
     config = require('./config'),
     passport = require('passport'),
-    rethink = require('./rethink'),
-    async = require('async');
+    rethink = require('./rethink');
 
 var app = express();
 
@@ -20,7 +19,3 @@ rethink.connect(function() {
         console.log('Server started and listening on port ' + app.get('port'));
     });
 });
-
-
-
-

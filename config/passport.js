@@ -1,6 +1,5 @@
 var LocalStrategy = require('passport-local').Strategy,
     GitHubStrategy = require('passport-github').Strategy,
-    bcrypt = require('bcrypt'),
     config = require('../config');
 
 module.exports = function(passport, rethink) {
