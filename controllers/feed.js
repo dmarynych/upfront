@@ -37,7 +37,7 @@ module.exports = {
 function getUser(userId, cb) {
     rethink.r
         .table('users')
-        .get(req.user)
+        .get(userId)
         .run(rethink.conn, cb);
 }
 
