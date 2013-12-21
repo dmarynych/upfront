@@ -3,6 +3,6 @@ machine:
     version: 0.10.24
 deployment:
   production:
-    branch: production
+    branch: master
     commands:
       - ls
