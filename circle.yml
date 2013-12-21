@@ -5,4 +5,4 @@ deployment:
   production:
     branch: master
     commands:
-      - ssh uptodater.onjs.net -l stark
+      - ssh stark@uptodater.onjs.net 'cd upfront; git pull; sudo restart baley;'
