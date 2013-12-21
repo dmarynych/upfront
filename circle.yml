@@ -5,4 +5,4 @@ deployment:
   production:
     branch: master
     commands:
-      - ssh uptodater.onjs.net
+      - ssh stark@uptodater.onjs.net
