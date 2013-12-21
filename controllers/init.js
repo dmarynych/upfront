@@ -12,6 +12,7 @@ module.exports = function(req, res) {
                     user: {
                         username: user.username,
                         githubId: user.githubId,
+                        avatar: user.avatar,
                         displayname: user.displayName,
                         id: user.id
                     },
