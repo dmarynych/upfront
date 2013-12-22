@@ -95,17 +95,17 @@
 
 
 /*Our gosu styles*/
-.repoRow {
-    cursor: pointer;
- }
 
+/*Header*/
+.header-logo a {color: #222;}
+.header-logo a:hover {text-decoration: none;}
+.header-logo {float: left;}
+.user-block {float: right;}
+
+.repoRow {cursor: pointer; }
 .reposTable .instantColumn,
 .reposTable .dailyColumn {
     text-align: center;
 }
 
-.feedItem {
-    margin: 10px 0;
-}
-
-.sidebar_block button {margin-bottom: 10px; }
+.feedItem {margin: 10px 0; }

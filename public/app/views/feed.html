@@ -1,33 +1,30 @@
 
 <div class="">
     <div>
+        <div class="feedItem" ng-repeat="repo in versions | reposFilter">
 
+            <h4 class="text-left" ng-show="isNewPeriod($index)">
+                <i class="icon-calendar"></i>
+                <span>{{getPeriodLabel(repo.releaseDate)}}</span>
+            </h4>
 
+            <div>
+                <span class="date" ng-show="repo.releaseDate > twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate | date: 'HH:mm'}}</span>
+                <span class="date" ng-show="repo.releaseDate < twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate | date: 'dd-MMM'}}</span>
 
-            <div class="feedItem" ng-repeat="repo in versions | reposFilter">
-
-                <h4 class="text-left" ng-show="isNewPeriod($index)">
-                    <i class="icon-calendar"></i>
-                    <span>{{getPeriodLabel(repo.releaseDate)}}</span>
-                </h4>
-
-                <div>
-                    <span class="date" ng-show="repo.releaseDate > twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate | date: 'HH:mm'}}</span>
-                    <span class="date" ng-show="repo.releaseDate < twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate | date: 'dd-MMM'}}</span>
-
-                    <img ng-src="{{repo.avatar || 'img/avatar.png'}}" alt="" width="22"/>
-                    <a href="https://github.com/{{repo.user}}/{{repo.name}}">
-                        {{repo.user}}/{{repo.name}}
-                    </a>
-                    <span class="">{{repo.currentVersion}},</span>
-                    <span class="pointer" ng-click="addLangFilter(repo.language)">{{repo.language}}</span>
-                    <a href="/compareVersion/{{repo.user}}/{{repo.name}}/{{repo.currentVersion}}">changelog</a>
-                </div>
-                <p style="padding-left:60px;">
-                    {{repo.description}}
-                </p>
-
+                <img ng-src="{{repo.avatar || 'img/avatar.png'}}" alt="" width="22"/>
+                <a href="https://github.com/{{repo.user}}/{{repo.name}}">
+                    {{repo.user}}/{{repo.name}}
+                </a>
+                <span class="">{{repo.currentVersion}},</span>
+                <span class="pointer" ng-click="addLangFilter(repo.language)">{{repo.language}}</span>
+                <a href="/compareVersion/{{repo.user}}/{{repo.name}}/{{repo.currentVersion}}">changelog</a>
             </div>
+            <p style="padding-left:60px;">
+                {{repo.description}}
+            </p>
+
+        </div>
 
         <!--<hr ng-show="feed.versions">-->
     </div>

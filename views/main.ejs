@@ -24,8 +24,13 @@
 <div id="wrapper">
 <div id="wrapper-inner">
     <div class="container">
-        <div class="page-header">
-            <h1>Uptodater <small>Github updates</small></h1>
+        <div class="page-header clearfix">
+            <div class="header-logo">
+                <h1><a href="/">Uptodater</a><small>Github updates</small></h1>
+            </div>
+            <div class="user-block" ng-controller="UserBlockCtrl">
+                <user-block></user-block>
+            </div>
         </div>
 
         <div id="main" class="row">
@@ -39,9 +44,8 @@
                     </ul>
                 </div>
                 
-                <div class="sidebar_block" ng-controller="UserBlockCtrl">
-                    <user-block></user-block>
-                </div>
+                <!-- <div class="sidebar_block">                    
+                </div> -->
 
                 <div ng-controller="FilterCtrl" class="sidebar_block">
                     <div ng-include="'app/views/filters.html'"></div>
