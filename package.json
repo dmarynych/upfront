@@ -23,6 +23,7 @@
         "karma": "*",
         "karma-mocha": "*",
         "karma-coverage": "*",
+        "karma-growl-reporter": "~0.1",
         "expect.js": "*",
         "grunt": "~0.4.1",
         "grunt-contrib-copy": "~0.4.1",
