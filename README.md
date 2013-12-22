@@ -1,4 +1,4 @@
-![](https://api.travis-ci.org/dmarynych/upfront.png)
+[![Build Status](https://drone.io/github.com/dmarynych/upfront/status.png)](https://drone.io/github.com/dmarynych/upfront/latest)
 
 Upfront
 =======
