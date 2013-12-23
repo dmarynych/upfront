@@ -8,8 +8,7 @@ module.exports = function(grunt) {
         style: 'compressed'
       },
       files: {                         // Dictionary of files
-        'public/css/style.min.css': 'public/sass/style.scss',       // 'destination': 'source'
-        'public/css/libs.min.css': 'public/css/libs/*.css' 
+        'public/css/style.min.css': 'public/sass/style.scss'       // 'destination': 'source'
       }
     }
   },
