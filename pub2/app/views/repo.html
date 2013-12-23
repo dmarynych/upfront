@@ -1,0 +1,23 @@
+
+<div class="row">
+    <div class="span9">
+        <h2 class="page-header">{{repo.user}}/{{repo.name}}</h2>
+        <div class="property-detail">
+            <!--<a href="#/list"><< go back, to list</a>-->
+
+            <p>
+                {{repo.description}}
+            </p>
+
+            <div>
+                <h5>Versions history</h5>
+                <ul>
+                    <li ng-repeat="version in repo.versions | orderBy:'releaseDate':true">
+                        <b>{{version.version}}</b> {{version.releaseDate * 1000 | date:'dd.MM.yy HH:mm'}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -5,6 +5,8 @@ var express = require('express'),
     RDBStore = require('connect-rethinkdb')(express);
 
 module.exports = function(app, passport, rethink) {
+
+
     // all environments
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/../views');
@@ -14,6 +16,8 @@ module.exports = function(app, passport, rethink) {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.cookieParser('s&^hw5jk4hjkw458Y#*%Y$hjk5n4'));
+
+    app.engine('.html', require('ejs').renderFile)
 
     // express/rethink session storage
     app.use(express.session({
@@ -32,13 +36,14 @@ module.exports = function(app, passport, rethink) {
 
 
 
+
     // use passport session
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(flash());
 
     app.use(app.router);
-    app.use(express.static(path.join(__dirname, '../public')));
+    app.use(express.static(path.join(__dirname, '../pub2/app')));
 
     /*if ('development' === app.get('env')) {
         app.use(express.errorHandler());

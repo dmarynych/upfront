@@ -4,7 +4,7 @@ var user = require('../routes/user'),
 
 module.exports = function(app, passport, rethink) {
     app.get('/', function (req, res) {
-        res.render('main');
+        res.render('../pub2/app/index.html');
     });
 
     app.get('/myFeed', feed.my);

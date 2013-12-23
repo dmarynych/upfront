@@ -1,0 +1,138 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" type="text/css">
+
+    <title>Uptodater</title>
+
+
+</head>
+<body>
+
+
+
+<div id="wrapper-outer">
+    <div id="wrapper">
+        <div id="wrapper-inner">
+            <div class="container">
+                <div class="page-header clearfix">
+                    <div class="header-logo">
+                        <h1><a href="/">Uptodater</a><small>Github updates</small></h1>
+                    </div>
+                    <div class="user-block" ng-controller="UserBlockCtrl">
+                        <user-block></user-block>
+                    </div>
+                </div>
+
+                <div id="main" class="row">
+                    <div class="col-lg-3">
+                        <div class="bs-sidebar">
+                            <ul class="nav bs-sidenav main_menu">
+                                <li><a href="#/myFeed" class="">My feed</a></li>
+                                <li><a href="#/feed">Latest releases</a></li>
+                                <li><a href="#/settings" class="">Settings</a></li>
+                                <li><a href="#/status" class="">Status</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- <div class="sidebar_block">
+                        </div> -->
+
+                        <div ng-controller="FilterCtrl" class="sidebar_block">
+                            <div ng-include="'views/filters.html'"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9"  ng-view class="main_content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+
+
+
+
+
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/socket.io-client/dist/socket.io.js"></script>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/routes.js"></script>
+<!-- endbuild -->
+
+
+<script src="scripts/filters/repoFilter.js"></script>
+
+<script src="scripts/controllers/ReposListCtrl.js"></script>
+<script src="scripts/controllers/FeedCtrl.js"></script>
+<script src="scripts/controllers/MyFeedCtrl.js"></script>
+<script src="scripts/controllers/RepoCtrl.js"></script>
+<script src="scripts/controllers/FilterCtrl.js"></script>
+<script src="scripts/controllers/StatusCtrl.js"></script>
+<script src="scripts/controllers/UserBlockCtrl.js"></script>
+
+<script src="scripts/directives/userBlock.js"></script>
+
+
+<script src="scripts/services/repos.js"></script>
+<script src="scripts/services/socket.js"></script>
+<script src="scripts/services/Repo.js"></script>
+
+
+
+
+
+</body>
+</html>
