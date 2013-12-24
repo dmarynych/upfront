@@ -1,4 +1,4 @@
-angular.module('up2').controller('FeedCtrl', function($scope, $rootScope, repos) {
+angular.module('up2').controller('FeedCtrl', function($scope, $rootScope, versions) {
     $scope.filterLanguage = [];
     $scope.twoDaysAgoDate = moment(moment().startOf('day')).add('days', -1).unix();
     $scope.versions = [];
@@ -7,15 +7,15 @@ angular.module('up2').controller('FeedCtrl', function($scope, $rootScope, repos)
 
 
     $scope.isNewPeriod = function(index) {
-        return repos.isNewPeriod($scope.versions, index);
+        return versions.isNewPeriod($scope.versions, index);
     };
-    $scope.getPeriodLabel = repos.getPeriodLabel;
+    $scope.getPeriodLabel = versions.getPeriodLabel;
 
     $scope.isToday = function(date) {
         return date > moment().startOf('day');
     };
     // calling method load of serice repos(services/repos)
-    repos.load('all', function(versions, langs) {
+    versions.load('all', function(versions, langs) {
         $scope.languages = langs;
         $scope.versions = versions;
     });

@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('up2').factory('repos', function($http, $rootScope, socket) {
-    var repos = {};
+angular.module('up2').factory('versions', function($http, $rootScope, socket) {
+    var versions = {};
 
-    repos.isMyRepo = function(repo) {
+    versions.isMyRepo = function(repo) {
         var repoFullName = repo.user + repo.name;
         console.log(_.indexOf(app.repos, repoFullName), repoFullName);
 
@@ -14,7 +14,7 @@ angular.module('up2').factory('repos', function($http, $rootScope, socket) {
         console.log('version bump!');
         console.log(data);
 
-        if(repos.isMyRepo(data)) {
+        if(versions.isMyRepo(data)) {
             h5Notify(data.user +'/'+ data.name, 'New version '+ data.version);
         }
         else {
@@ -24,8 +24,8 @@ angular.module('up2').factory('repos', function($http, $rootScope, socket) {
         $rootScope.$broadcast('newRelease', data);
     });
 
-    repos.load = function(feedType, callback) {
-        var url = '/myFeed';
+    versions.load = function(feedType, callback) {
+        var url = '/feed/my';
         if(feedType === 'all') {
             url = '/feed';
         }
@@ -68,7 +68,7 @@ angular.module('up2').factory('repos', function($http, $rootScope, socket) {
         }
     ];
 
-    repos.isNewPeriod = function(versions, index) {
+    versions.isNewPeriod = function(versions, index) {
         var currVersion = versions[index],
             nextVersion;
 
@@ -90,12 +90,12 @@ angular.module('up2').factory('repos', function($http, $rootScope, socket) {
         return !currPeriod.date.isSame(prevPeriod.date);
     };
 
-    repos.getPeriodLabel = function(date) {
+    versions.getPeriodLabel = function(date) {
         var period = _.find(periods, function(period) {
             return date >= period.date.unix()*1000;
         });
         return period.label;
     };
 
-    return repos;
+    return versions;
 });

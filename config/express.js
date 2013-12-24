@@ -17,7 +17,7 @@ module.exports = function(app, passport, rethink) {
     app.use(express.methodOverride());
     app.use(express.cookieParser('s&^hw5jk4hjkw458Y#*%Y$hjk5n4'));
 
-    app.engine('.html', require('ejs').renderFile)
+    app.engine('.html', require('ejs').renderFile);
 
     // express/rethink session storage
     app.use(express.session({
@@ -33,17 +33,19 @@ module.exports = function(app, passport, rethink) {
         })
     }));
 
-
-
-
-
     // use passport session
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(flash());
 
     app.use(app.router);
-    app.use(express.static(path.join(__dirname, '../pub2/app')));
+
+    if(process.env.NODE_ENV === 'dev') {
+        app.use(express.static(path.join(__dirname, '../pub2/app')));
+    }
+    else {
+        app.use(express.static(path.join(__dirname, '../pub2/dist')));
+    }
 
     /*if ('development' === app.get('env')) {
         app.use(express.errorHandler());

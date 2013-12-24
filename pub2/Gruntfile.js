@@ -188,7 +188,7 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                        //'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                         '<%= yeoman.dist %>/styles/fonts/*'
                     ]
                 }
@@ -304,7 +304,14 @@ module.exports = function (grunt) {
                         cwd: '.tmp/images',
                         dest: '<%= yeoman.dist %>/images',
                         src: ['generated/*']
+                    },
+                    {
+                        expand: true,
+                        src: ['<%= yeoman.app %>/bower_components/socket.io-client/dist/socket.io.j/'],
+                        dest: '<%= yeoman.dist %>/bower_components/socket.io-client/dist/socket.io.js',
+                        filter: 'isFile'
                     }
+
                 ]
             },
             styles: {

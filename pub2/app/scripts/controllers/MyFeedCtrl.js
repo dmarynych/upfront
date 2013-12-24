@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('up2').controller('MyFeedCtrl', function($scope, $rootScope, repos) {
+angular.module('up2').controller('MyFeedCtrl', function($scope, $rootScope, versions) {
     $scope.filterLanguage = [];
     $scope.twoDaysAgoDate = moment(moment().startOf('day')).add('days', -1).unix();
     $scope.versions = [];
@@ -10,14 +10,14 @@ angular.module('up2').controller('MyFeedCtrl', function($scope, $rootScope, repo
 
 
     $scope.isNewPeriod = function(index) {
-        return repos.isNewPeriod($scope.versions, index);
+        return versions.isNewPeriod($scope.versions, index);
     };
-    $scope.getPeriodLabel = repos.getPeriodLabel;
+    $scope.getPeriodLabel = versions.getPeriodLabel;
 
     $scope.isToday = function(date) {
         return date > moment().startOf('day');
     };
-    repos.load('my', function(periods, langs) {
+    versions.load('my', function(periods, langs) {
         $scope.languages = langs;
         $scope.versions = periods;
     });
@@ -29,7 +29,7 @@ angular.module('up2').controller('MyFeedCtrl', function($scope, $rootScope, repo
     $rootScope.$on('newRelease', function(event, version) {
         console.log('nr', version);
 
-        if(repos.isMyRepo(version)) {
+        if(versions.isMyRepo(version)) {
             $scope.versions.unshift(version);
         }
     });

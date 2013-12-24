@@ -15,7 +15,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -25,7 +26,7 @@
 
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" type="text/css">
+
 
     <title>Uptodater</title>
 
@@ -83,6 +84,8 @@
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -92,29 +95,19 @@
 <!-- endbower -->
 <!-- endbuild -->
 
-
-
-
-
-
-<script src="bower_components/jquery/jquery.min.js"></script>
-<script src="bower_components/underscore/underscore.js"></script>
-<script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/socket.io-client/dist/socket.io.js"></script>
 
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
+
+
+
+
+
 
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/routes.js"></script>
-<!-- endbuild -->
-
-
 <script src="scripts/filters/repoFilter.js"></script>
-
 <script src="scripts/controllers/ReposListCtrl.js"></script>
 <script src="scripts/controllers/FeedCtrl.js"></script>
 <script src="scripts/controllers/MyFeedCtrl.js"></script>
@@ -122,16 +115,11 @@
 <script src="scripts/controllers/FilterCtrl.js"></script>
 <script src="scripts/controllers/StatusCtrl.js"></script>
 <script src="scripts/controllers/UserBlockCtrl.js"></script>
-
 <script src="scripts/directives/userBlock.js"></script>
-
-
-<script src="scripts/services/repos.js"></script>
+<script src="scripts/services/versions.js"></script>
 <script src="scripts/services/socket.js"></script>
 <script src="scripts/services/Repo.js"></script>
-
-
-
+<!-- endbuild -->
 
 
 </body>

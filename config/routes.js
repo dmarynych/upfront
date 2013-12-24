@@ -4,13 +4,18 @@ var user = require('../routes/user'),
 
 module.exports = function(app, passport, rethink) {
     app.get('/', function (req, res) {
-        res.render('../pub2/app/index.html');
+        if(process.env.NODE_ENV === 'dev') {
+            res.render('../pub2/app/index.html');
+        }
+        else {
+            res.render('../pub2/dist/index.html');
+        }
+
     });
 
-    app.get('/myFeed', feed.my);
+    app.get('/feed/my', feed.my);
     app.get('/feed', feed.all);
     app.get('/init', init);
-
 
 
 
@@ -24,11 +29,4 @@ module.exports = function(app, passport, rethink) {
         req.logout();
         res.redirect('/');
     });
-    /*app.post('/users/session',
-        passport.authenticate('local', {
-            failureRedirect: '/',
-            failureFlash: 'Invalid email or password.'
-        }), function (req, res) {
-            res.redirect('/');
-        });*/
 };

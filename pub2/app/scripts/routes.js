@@ -17,7 +17,7 @@ angular.module('up2').config(['$routeProvider', function($routeProvider, $scope)
             templateUrl: 'views/feed.html',
             controller: 'FeedCtrl'
         }).
-        when('/myFeed', {
+        when('/feed/my', {
             routeName: 'myFeed',
             templateUrl: 'views/feed.html',
             controller: 'MyFeedCtrl'
