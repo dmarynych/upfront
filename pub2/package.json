@@ -5,6 +5,7 @@
 
   },
   "devDependencies": {
+    "bower":"*",
     "grunt": "~0.4.1",
     "grunt-cli": "~0.1.11",
     "grunt-autoprefixer": "~0.4.0",
