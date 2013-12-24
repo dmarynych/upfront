@@ -1,11 +1,12 @@
 {
-  "name": "pub2",
+  "name": "upfront",
   "version": "0.0.0",
   "dependencies": {
-    "grunt-cli": "~0.1.11"
+
   },
   "devDependencies": {
     "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.11",
     "grunt-autoprefixer": "~0.4.0",
     "grunt-bower-install": "~0.7.0",
     "grunt-concurrent": "~0.4.1",
