@@ -13,12 +13,21 @@
                 <span class="date" ng-show="repo.releaseDate < twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate | date: 'dd-MMM'}}</span>
 
                 <img ng-src="{{repo.avatar || 'images/avatar.png'}}" alt="" width="22"/>
-                <a href="https://github.com/{{repo.user}}/{{repo.name}}">
-                    {{repo.user}}/{{repo.name}}
-                </a>
+                <span class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                        {{repo.user}}/{{repo.name}}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="https://github.com/{{repo.user}}/{{repo.name}}">View on Github</a></li>
+                        <li><a href="/compareVersion/{{repo.user}}/{{repo.name}}/{{repo.currentVersion}}">Changelog</a></li>
+                        <li><a href="#">Unwatch</a></li>
+                    </ul>
+                </span>
+
+
                 <span class="">{{repo.currentVersion}},</span>
                 <span class="pointer" ng-click="addLangFilter(repo.language)">{{repo.language}}</span>
-                <a href="/compareVersion/{{repo.user}}/{{repo.name}}/{{repo.currentVersion}}">changelog</a>
             </div>
             <p style="padding-left:60px;">
                 {{repo.description}}

@@ -1,8 +1,0 @@
-machine:
-  node:
-    version: 0.10.24
-deployment:
-  production:
-    branch: master
-    commands:
-      - ssh stark@uptodater.onjs.net 'cd upfront; git pull; sudo restart baley;'
