@@ -1,4 +1,3 @@
-
 <div class="">
     <div>
         <div class="feedItem" ng-repeat="repo in versions | reposFilter">
@@ -9,8 +8,12 @@
             </h4>
 
             <div>
-                <span class="date" ng-show="repo.releaseDate > twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate | date: 'HH:mm'}}</span>
-                <span class="date" ng-show="repo.releaseDate < twoDaysAgoDate" style="margin-right:7px;">{{repo.releaseDate | date: 'dd-MMM'}}</span>
+                <span class="date" ng-show="repo.releaseDate > twoDaysAgoDate">
+                    {{repo.releaseDate | date: 'HH:mm'}}
+                </span>
+                <span class="date" ng-show="repo.releaseDate < twoDaysAgoDate">
+                    {{repo.releaseDate | date: 'dd-MMM'}}
+                </span>
 
                 <img ng-src="{{repo.avatar || 'img/avatar.png'}}" alt="" width="22"/>
                 <a href="https://github.com/{{repo.user}}/{{repo.name}}">
@@ -20,7 +23,7 @@
                 <span class="pointer" ng-click="addLangFilter(repo.language)">{{repo.language}}</span>
                 <a href="/compareVersion/{{repo.user}}/{{repo.name}}/{{repo.currentVersion}}">changelog</a>
             </div>
-            <p style="padding-left:60px;">
+            <p class="repo-description">
                 {{repo.description}}
             </p>
 

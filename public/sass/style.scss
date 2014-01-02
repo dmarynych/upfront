@@ -102,6 +102,10 @@
 .header-logo {float: left;}
 .user-block {float: right;}
 
+.feedItem {
+	.repo-description {padding-left: 60px;}
+	.date {margin-right:7px;}
+}
 .repoRow {cursor: pointer; }
 .reposTable .instantColumn,
 .reposTable .dailyColumn {
