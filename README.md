@@ -1,4 +1,4 @@
-[![Build Status](https://drone.io/github.com/dmarynych/upfront/status.png)](https://drone.io/github.com/dmarynych/upfront/latest)
+[![Build Status](https://www.codeship.io/projects/57dbf280-4468-0131-fb43-0e8822c794b7/status?branch=master)](https://www.codeship.io/projects/57dbf280-4468-0131-fb43-0e8822c794b7/status?branch=master)
 
 Upfront
 =======

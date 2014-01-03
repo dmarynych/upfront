@@ -1,6 +1,6 @@
 {
     "rethink": {
-        "host": "socio.onjs.net",
+        "host": "db.onjs.net",
         "port": 28015,
         "db": "uptodater",
         "user": "socio",
