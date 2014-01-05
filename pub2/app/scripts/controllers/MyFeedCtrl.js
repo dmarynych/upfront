@@ -3,7 +3,7 @@
 
 angular.module('up2').controller('MyFeedCtrl', function($scope, $rootScope, versions) {
     $scope.filterLanguage = [];
-    $scope.twoDaysAgoDate = moment(moment().startOf('day')).add('days', -1).unix();
+    $scope.twoDaysAgoDate = moment(moment().startOf('day')).add('days', -1).valueOf();
     $scope.versions = [];
     $scope.currentPeriod = -1;
 
