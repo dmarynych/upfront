@@ -1,27 +1,30 @@
 {
-    "name": "baley",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-        "start": "node server.js",
-        "test": "mocha ./tests;"
-    },
-    "dependencies": {
-        "bower":"*",
-        "lodash":"*",
-        "async":"*",
-        "express": "3.3.4",
-        "passport": "*",
-        "ejs": "*",
-        "passport-local": "*",
-        "rethinkdb": "*",
-        "nconf": "*",
-        "connect-rethinkdb": "*",
-        "connect-flash": "*",
-        "passport-github": "*"
-    },
-    "devDependencies": {
-        "mocha":"*",
-        "expect.js": "*"
-    }
+  "name": "baley",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha ./tests;"
+  },
+  "dependencies": {
+    "bower": "*",
+    "lodash": "*",
+    "async": "*",
+    "express": "*",
+    "passport": "*",
+    "ejs": "*",
+    "passport-local": "*",
+    "nconf": "*",
+    "connect-rethinkdb": "*",
+    "connect-flash": "*",
+    "passport-github": "*",
+    "rethinkdb": "~1.12",
+    "cookie-parser": "~1.3.2",
+    "body-parser": "~1.5.2",
+    "express-session": "~1.7.2"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "expect.js": "*"
+  }
 }

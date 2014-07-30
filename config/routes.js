@@ -5,12 +5,11 @@ var user = require('../routes/user'),
 module.exports = function(app, passport, rethink) {
     app.get('/', function (req, res) {
         if(process.env.NODE_ENV === 'dev') {
-            res.render('../pub2/app/index.html');
+            res.render('../pub_react/app/index.html');
         }
         else {
-            res.render('../pub2/dist/index.html');
+            res.render('../pub_react/dist/index.html');
         }
-
     });
 
     app.get('/feed/my', feed.my);

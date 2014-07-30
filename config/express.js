@@ -1,5 +1,7 @@
 var express = require('express'),
     flash = require('connect-flash'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
     path = require('path'),
     config = require('../config'),
     RDBStore = require('connect-rethinkdb')(express);
@@ -11,16 +13,12 @@ module.exports = function(app, passport, rethink) {
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/../views');
     app.set('view engine', 'ejs');
-    app.use(express.favicon());
-    app.use(express.logger('dev'));
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use(express.cookieParser('s&^hw5jk4hjkw458Y#*%Y$hjk5n4'));
+    app.use(cookieParser('s&^hw5jk4hjkw458Y#*%Y$hjk5n4'));
 
     app.engine('.html', require('ejs').renderFile);
 
     // express/rethink session storage
-    app.use(express.session({
+    app.use(session({
         secret: 'keke',
         store: new RDBStore({
             flushOldSessIntvl: 60000,
@@ -36,18 +34,13 @@ module.exports = function(app, passport, rethink) {
     // use passport session
     app.use(passport.initialize());
     app.use(passport.session());
-    app.use(flash());
 
     app.use(app.router);
 
     if(process.env.NODE_ENV === 'dev') {
-        app.use(express.static(path.join(__dirname, '../pub2/app')));
+        app.use(express.static(path.join(__dirname, '../pub_react/app')));
     }
     else {
-        app.use(express.static(path.join(__dirname, '../pub2/dist')));
+        app.use(express.static(path.join(__dirname, '../pub_react/dist')));
     }
-
-    /*if ('development' === app.get('env')) {
-        app.use(express.errorHandler());
-    }*/
 };
